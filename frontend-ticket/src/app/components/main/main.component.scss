@@ -1,0 +1,20 @@
+.admin-body{
+    display: flex;
+}
+.menu{
+    flex-grow: 2;
+
+}
+.admin-container{
+    flex-grow: 6;
+}
+.contenu{
+    position: fixed;
+    top: 80px;
+    right: 0; width: 60%;
+    height: 100%;
+    background-color: #f2f2f2; 
+}
+.imageville{
+    width: 100%;
+}

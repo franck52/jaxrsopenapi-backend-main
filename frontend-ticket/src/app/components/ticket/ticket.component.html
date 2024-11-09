@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Création de ticket</title>
+  </head>
+  <body>
+    <app-header></app-header>
+    <br>
+    <div class="container">
+      <h1 >Création d'un Ticket</h1>
+      <form id="register-form">
+        <div class="success-message" *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <div class="success-message" *ngIf="successMessage" appSuccessMessage="{{ successMessage }}"></div>
+        <label for="title">Titre</label>
+        <input type="text" id="titre" name="title" required [(ngModel)]="title"/>
+      
+        <label for="lastname">Description</label>
+        <textarea name="label" id="label" cols="42" rows="5" required [(ngModel)]="label"></textarea>
+        <!-- <label for="type">Type de Ticket</label>
+        <input type="text" id="type" name="typeT" required [(ngModel)]="type" /> -->
+
+        <label for="priority">Priorité</label>
+        <select [(ngModel)]="selectedPriority" name="priority" id="priority">
+          <option *ngFor="let priority of priorities" [ngValue]="priority">
+            {{ priority == 1 ? 'Haute' : priority == 2 ? 'Moyenne' : 'Basse' }}
+          </option>
+        </select>
+        <br>
+        <!-- <input type="text" id="priority" name="priority" required [(ngModel)]="selectedPriority" /> -->
+
+        <label for="bug">Bug description</label>
+        <input type="text" id="bugdesc" name="bug" required [(ngModel)]="bugdescription" />
+
+        <input type="submit" value="Créer " (click)="saveTicket($event)" />
+      </form>
+ 
+    </div>
+
+    <script>
+    const form = document.getElementById("register-form");
+const loader = document.querySelector(".loader");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Show loader
+  document.body.classList.add("show-loader");
+
+  // Fake registration request
+  setTimeout(() => {
+    // Hide loader
+    document.body.classList.remove("show-loader");
+
+    // Get form data
+    const username = form.username.value.trim();
+    const password = form.password.value.trim();
+    const email = form.email.value.trim();
+
+    // Validate form data
+    if (!username || !password || !email) {
+      alert("Veuillez remplir tous les champs");
+      return;
+    }
+
+    // Register user
+    alert(`Utilisateur créé : ${username}`);
+   
+  }, 3000);
+      });
+    </script>
+    <!-- <app-app-listticket></app-app-listticket> -->
+    <app-footer></app-footer>
+  </body>
+</html>

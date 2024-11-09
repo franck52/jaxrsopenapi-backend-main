@@ -1,0 +1,55 @@
+.container{
+    margin-top: 95px;
+    background-color: rgb(189, 189, 226);
+    justify-content: center;
+    color:blue;
+}
+#searchUser{
+    width: 90%;
+}
+.mcontainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.my_form{
+    justify-content: center;
+} 
+.allUsers{
+    
+    background-color: orange;
+}
+input[type="text"], button {
+    margin: 10px;
+  
+}
+.ma-liste {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: blue;
+  }
+  
+  .ma-liste li {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .ma-liste li:last-child {
+    border-bottom: none;
+  }
+  .mincontainer{
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .lab-container{
+    
+    width: 50%;
+  }
+  .form-control{
+    width: 90%;
+  }
+  

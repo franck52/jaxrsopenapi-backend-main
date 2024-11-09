@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Créer un commentaire</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Créer un commentaire</h1>
+      <form id="comment-form">
+        <textarea id="comment" name="comment" rows="4" placeholder="Ajouter un commentaire"></textarea>
+
+        <div class="form-footer">
+          <button type="submit">Publier</button>
+          <span id="counter">100</span>
+        </div>
+      </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("comment-form");
+const counter = document.getElementById("counter");
+
+form.addEventListener("input", () => {
+  // Update character counter
+  const remainingChars = 100 - form.comment.value.length;
+  counter.innerText = remainingChars;
+
+  // Disable submit button if there are no characters or too many characters
+  if (remainingChars < 0 || remainingChars === 100) {
+    form.querySelector("button[type='submit']").disabled = true;
+  } else {
+    form.querySelector("button[type='submit']").disabled = false;
+  }
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Get comment
+  const comment = form.comment.value.trim();
+
+  // Validate comment
+  if (!comment) {
+    alert("Veuillez ajouter un commentaire");
+    return;
+  }
+
+  // Show success message
+  alert("Commentaire publié");
+
+  // Reset form
+  form.reset();
+  counter.innerText = 100;
+  form.querySelector("button[type='submit']").disabled = true;
+});
+
+    </script>
+  </body>
+</html>

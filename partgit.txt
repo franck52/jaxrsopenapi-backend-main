@@ -1,0 +1,8 @@
+git init 
+git clone chemin 
+git add .
+git commit -m ""
+git push --set-upstream origin frontend-fof
+------------------------
+recuperer un travail d'un ami qu'on a pas
+git pull origin le-branche de l'ami

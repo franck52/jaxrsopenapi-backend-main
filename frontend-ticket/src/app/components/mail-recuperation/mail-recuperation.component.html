@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Authentification</title>
+
+  </head>
+  <body>
+    <div class="main">
+
+      
+      <p class="a">Saisissez votre adresse mail pour vous envoyer un mail de recuperation</p>
+      
+      </div>
+    <div class="container">
+      <form id="login-form">
+        <label for="username">Saisissez votre adresse mail</label>
+        <input type="mail" id="mailadresse" name="mailadresse" required [(ngModel)]="email"/>
+
+        <input type="submit" (click)="sendEmail($event)"  value="Envoyer" />
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("login-form");
+      const loader = document.querySelector(".loader");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Show loader
+        document.body.classList.add("show-loader");
+
+        // Fake login request
+        setTimeout(() => {
+          // Hide loader
+          document.body.classList.remove("show-loader");
+
+          // Check username and password
+          const username = form.username.value.trim();
+          const password = form.password.value.trim();
+
+          if (username === "admin" && password === "password") {
+            alert("Bienvenue !");
+          } else {
+            alert("Nom d'utilisateur ou mot de passe incorrect.");
+          }
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>

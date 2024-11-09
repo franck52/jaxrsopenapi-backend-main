@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<div class="container">
+    <h3 style="top:780px;" >Liste des utilisateurs</h3>
+    <div class="my_form">
+        <form action="" class="mcontainer">
+            <label for="" style="width: 50%;">
+                <input id="searchUser"  type="text" placeholder="Trouver un utilisateur à partir de son email" class="form-control" name="userEmail" [(ngModel)]="userEmail">
+            </label>
+
+            <button (click)="getUserByEmail()">Recherche</button>
+        </form>
+    </div>
+    <div *ngIf="user" class="mincontainer">
+        <form action="">
+            <label for="" class="lab-container">
+                Nom:
+                <input type="text" name="userName" [(ngModel)]="user.userName" class="form-control">
+            </label>
+            <br>
+            <label for="" class="lab-container">
+                Prenom: 
+                <input type="text"  name="lastname" [(ngModel)]="user.lastname" class="form-control">
+            </label>
+        </form>
+        
+        <p>Email: {{user.email}}</p>
+      </div>
+    <div class="allUsers" *ngFor="let user of users">
+        <ul class="ma-liste">
+            <li *ngFor="let item of users">{{ item.userName }} {{item.lastname}}</li>
+          </ul>
+    </div>
+</div>
+<app-footer></app-footer>

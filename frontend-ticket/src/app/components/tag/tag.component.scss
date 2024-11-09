@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.ticket {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.tag-form {
+  margin-bottom: 20px;
+}
+
+.tag-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.tag-form input {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.tag-form button {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.tag-list {
+  margin-top: 20px;
+}
+
+.tag-list h3 {
+  margin-top: 0;
+}
+
+.tag-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-list li {
+  display: inline-block;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.tag-list li:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}

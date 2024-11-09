@@ -1,0 +1,37 @@
+<div class="menu">
+    <ul>
+        <li><a [routerLink]="['/home/user/profil']">Profil</a></li>
+        <li><a [routerLink]="['/home/list-tickets']">Vos tickets</a></li>
+        <li><a [routerLink]="['/home/list-all-tickets']">Tous les tickets</a></li>
+        <li><a [routerLink]="['/home/list-users']">Les utilisateurs</a></li>
+        <input class="form-control" placeholder=" Entrer le N° du Ticket puis taper entrer" type="text" [(ngModel)]="id" (keyup.enter)="afficher()">
+    </ul>
+    <div *ngIf="ticket">
+        <form action="">
+            <h4 style="color: blue;">modifier ou ajouter un commentaire à votre ticket</h4>
+            <div class="form-container">
+                <div class="title">
+                    <label style="color: blue;" for="">TITRE</label>
+                    <input type="text" class="form-control" name="title"[(ngModel)]="title">
+                </div>
+                <div class="description">
+                    <label style="color: blue;" for="">description</label>
+                    <input type="text" class="form-control" [(ngModel)]="label" name="label">
+                    >
+                </div>
+                <div class="commentaire">
+                    <label style="color: blue;" for="" >commentaire</label>
+                    <textarea style="height: 100px;" [(ngModel)]="texteCommentaire" name="textComment" id="" cols="30" rows="10" class="form-control"></textarea>
+                    
+                </div>
+                <div class="submitbtn">
+                    <button (click)="editTicket($event)">editer</button>
+                </div>
+            </div>
+            
+        </form>
+       
+      </div>
+</div>
+
+

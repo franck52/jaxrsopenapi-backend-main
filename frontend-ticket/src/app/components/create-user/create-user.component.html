@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Création d'utilisateur</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 >Création d'utilisateur</h1>
+      <form id="register-form">
+        <div class="success-message" *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <div class="success-message" *ngIf="successMessage" appSuccessMessage="{{ successMessage }}"></div>
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" required [(ngModel)]="username"/>
+      
+        <label for="lastname">Prénom d'utilisateur</label>
+        <input type="text" id="lastname" name="lastname" required [(ngModel)]="lastname" />
+
+        <label for="userAdress">Adresse</label>
+        <input type="text" id="userAdress" name="userAdress" required [(ngModel)]="userAdress" />
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required [(ngModel)]="password" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required [(ngModel)]="email" />
+
+        <input type="submit" value="Créer un compte" (click)="saveUser($event)" />
+        <a routerLink="/login">J'ai un compte</a>
+      </form>
+ 
+    </div>
+
+    <script>
+    const form = document.getElementById("register-form");
+const loader = document.querySelector(".loader");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Show loader
+  document.body.classList.add("show-loader");
+
+  // Fake registration request
+  setTimeout(() => {
+    // Hide loader
+    document.body.classList.remove("show-loader");
+
+    // Get form data
+    const username = form.username.value.trim();
+    const password = form.password.value.trim();
+    const email = form.email.value.trim();
+
+    // Validate form data
+    if (!username || !password || !email) {
+      alert("Veuillez remplir tous les champs");
+      return;
+    }
+
+    // Register user
+    alert(`Utilisateur créé : ${username}`);
+   
+  }, 3000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Authentification</title>
+
+  </head>
+  <body>
+    <div class="main">
+      <h1>Plateforme d'hébergement de sources de la plateforme ISTIC - ESIR</h1>
+      
+      <p class="a">Cette plateforme d'hébergement de sources est basée sur la solution OpenSource de GitLab (Community Edition). Elle permet l'hébergement de projets au format GIT.</p>
+      
+      </div>
+    <div class="container">
+      <h1>Authentification</h1>
+      <form id="login-form" #loginForm="ngForm">
+        <div *ngIf="errorMessage">
+          <p>{{ errorMessage }}</p>
+        </div>
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" required [(ngModel)]="userName" required />
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required [(ngModel)]="password" />
+        <label for="my-checkbox">Se rappeler de moi</label>
+        <input type="checkbox" id="my-checkbox">
+        
+        <input type="submit" (click)="onClick($event)" value="Se connecter" [disabled]="loginForm.invalid"/>
+        
+
+      </form>
+      <div class="actions">
+        <a routerLink="/create/user">Créer un compte</a>
+        <a routerLink="/user/email-verication">Mot de passe oublié</a>
+      </div>
+      <div class="loader">
+        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("login-form");
+      const loader = document.querySelector(".loader");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Show loader
+        document.body.classList.add("show-loader");
+
+        // Fake login request
+        setTimeout(() => {
+          // Hide loader
+          document.body.classList.remove("show-loader");
+
+          // Check username and password
+          const username = form.username.value.trim();
+          const password = form.password.value.trim();
+
+          if (username === "admin" && password === "password") {
+            alert("Bienvenue !");
+          } else {
+            alert("Nom d'utilisateur ou mot de passe incorrect.");
+          }
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<p class="info"></p>
+<div class="profile-container">
+    <!-- <div class="profile-picture">
+      <img src="user-profile-picture.jpg" alt="User profile picture">
+    </div> -->
+    <div class="profile-details" *ngIf="user">
+        <label>Nom : </label>
+        <span>{{user.userName}}</span>
+        <br>
+        <label>Prenoms : </label>
+        <span name="lastname">{{user.lastname}}</span>
+        <br>
+        <label>Adresse : </label><span name="address">{{user.userAddress}}</span>
+        <br>
+      <label >Email : </label><span name="emai">{{user.email}}</span>
+      
+    </div>
+    <div class="errorMessage" *ngIf="errorMessage">
+        <p>{{errorMessage}}</p>
+
+    </div>
+    <!-- <button class="hide-on-edit" (click)="toggleEditMode()">Editer</button> -->
+    <div *ngIf="!editMode && !saved">
+        <button (click)="toggleEditMode()">Editer</button>
+      </div>
+    <div *ngIf="editMode && !saved" class="form-container">
+        <p style="color:red ;" *ngIf="succesMessage">{{succesMessage}}</p>
+        <form *ngIf="user">
+            <label>Nom :</label>
+            <input [(ngModel)]="user.userName" name="nom">
+            <label>Prénom :</label>
+            <input [(ngModel)]="user.lastname" name="prenom">
+            <label>Email :</label>
+            <input [(ngModel)]="user.email" name="email">
+            <label>Password :</label>
+            <input [(ngModel)]="user.password" name="password">
+            <button type="submit" (click)="saveChanges()">Enregistrer</button>
+        </form>
+    </div>
+    <div *ngIf="saved" style="color: green;"> <!-- Affichez un message de confirmation si saved est true -->
+        {{succesMessage}}
+      </div>
+    
+
+  </div>
+
+<app-footer></app-footer>

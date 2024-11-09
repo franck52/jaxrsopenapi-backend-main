@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <footer>
+    <div class="container">
+      <div class="left-links">
+        <a href="#">Explore</a>
+        <a href="#">Help</a>
+        <a href="#">About</a>
+        <a href="#">GitLab</a>
+        <a href="#">Community forum</a>
+      </div>
+      <div class="right-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+<script>
+// Animations pour les liens de gauche
+const leftLinks = document.querySelectorAll('.left-links a');
+
+leftLinks.forEach(link => {
+  link.addEventListener('mouseover', () => {
+    link.style.color = '#ff8000';
+  });
+
+  link.addEventListener('mouseout', () => {
+    link.style.color = '#fff';
+  });
+});
+
+// Animation pour les icônes de droite
+const rightLinks = document.querySelectorAll('.right-links a');
+
+rightLinks.forEach(link => {
+  link.addEventListener('mouseover', () => {
+    link.querySelector('i').style.transform = 'scale(1.2)';
+  });
+
+  link.addEventListener('mouseout', () => {
+    link.querySelector('i').style.transform = 'scale(1)';
+  });
+});
+
+</script>  
+</body>
+</html>

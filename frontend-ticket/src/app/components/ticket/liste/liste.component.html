@@ -1,0 +1,59 @@
+
+<div>
+  <app-header></app-header>
+</div>
+
+<div class="myticket">
+  <div *ngFor="let ticket of tickets" class="ticket">
+    <div class="title">{{ ticket.title }}</div>
+    <div class="description">{{ ticket.label }}</div>
+    <div class="priority">Priorité : {{ ticket.priority }}</div>
+    <div class="nbr-commentaire" name="nbr-commentaire">
+        <p>{{ticketCommentCount[ticket.id_ticket]}} commentaire(s)</p>
+      
+    </div>
+    <br><br>
+    <div>
+      <button (click)="onEditButtonClick(ticket)">Editer</button>
+    <button (click)="onDeleteButtonClick(ticket)" (click)="confirmDelete()" class="delete-button">Supprimer</button>
+    </div>
+    
+  </div>
+  
+  <div *ngIf="showEditForm" class="popup-container">
+    <div class="popup">
+      <h2>Modifier le ticket</h2>
+      <form>
+        <label>
+          Titre:
+          <input type="text" [(ngModel)]="selectedTicket.title" name="title">
+        </label>
+        <label>
+          Description:
+          <textarea [(ngModel)]="selectedTicket.label" name="description"></textarea>
+        </label>
+        <label>
+          Commentaire:
+          <input type="text" [(ngModel)]="commentaire" name="commentaire">
+          
+        </label>
+        <label>
+          Tag:
+          <input type="text" [(ngModel)]="taglabel" name="taglabel">
+          
+        </label>
+        <label>
+          Priorité:
+          <select name="priority" [(ngModel)]="selectedTicket.priority">
+            <option value="1">Haute</option>
+            <option value="2">Moyenne</option>
+            <option value="3">Basse</option>
+          </select>
+        </label>
+        <button (click)="onSaveButtonClick()">Enregistrer</button>
+        <button (click)="onCancelButtonClick()">Annuler</button>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

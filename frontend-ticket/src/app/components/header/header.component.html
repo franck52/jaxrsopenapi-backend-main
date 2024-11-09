@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <img class="logo" src="./assets/image/logo-rennes1.jpg" alt="Logo">
+    </div>
+    <nav class="header__nav"  ng-show="showMe" >
+
+
+      <ul>
+        <li><a routerLink="/home">Accueil</a></li>
+        <!-- <li><a routerLink="/about">Services</a></li> -->
+        <li><a  routerLink="/create/ticket">Ticket(Issues)</a></li>
+        <li><a  routerLink="/about">À propos</a></li>
+        <li><a  (click)="logout()" href="">Deconnxion</a></li>
+        <li><a  routerLink="/home">{{userName}}</a></li>
+      </ul>
+    </nav>
+
+
+
+
+
+  </header>
+  <div class="header__menu-toggle">
+    <app-toogle-bar-menu></app-toogle-bar-menu>
+  </div>
+</body>
+</html>
